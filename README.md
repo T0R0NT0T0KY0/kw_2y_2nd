@@ -4,7 +4,7 @@
 javaFX
 env
 ```
-### env
+### env (resources/application.properties)
 ```text
 WEATHER_TOKEN=[api.openweathermap.org]
 ```
