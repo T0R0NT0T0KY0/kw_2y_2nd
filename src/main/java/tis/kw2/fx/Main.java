@@ -29,7 +29,7 @@ public class Main extends Application {
 	public void start(Stage stage) throws Exception {
 		stage.setTitle("Weather Application");
 		stage.setWidth(500);
-		stage.setHeight(300);
+		stage.setHeight(400);
 		stage.toFront();
 
 		InputStream iconStream = getClass().getResourceAsStream("/img/icon.png");
@@ -41,15 +41,16 @@ public class Main extends Application {
 		textField.setPrefColumnCount(11);
 		Button button = new Button("search");
 
+		FlowPane root = new FlowPane(Orientation.VERTICAL, 10, 10, textField, button, label);
+		Scene scene = new Scene(root, 250, 200);
 		button.setOnAction(event -> {
 			Map<String, String> weatherData = getWeatherData(textField.getText());
 			if (Objects.isNull(weatherData)) return;
 			label.setText(weatherData.get("information"));
 			InputStream is = getClass().getResourceAsStream(weatherData.get("image"));
 			Image img = new Image(is);
+			stage.getIcons().add(img);
 		});
-		FlowPane root = new FlowPane(Orientation.VERTICAL, 10, 10, textField, button, label);
-		Scene scene = new Scene(root, 250, 200);
 
 		stage.setScene(scene);
 		stage.setTitle("Weather searcher");

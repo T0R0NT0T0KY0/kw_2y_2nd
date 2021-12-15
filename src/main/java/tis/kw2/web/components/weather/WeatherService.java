@@ -35,7 +35,7 @@ public class WeatherService {
 
 	private static Map<String, String> parseWeatherInformation(Map<String, Object> info) {
 		Map toReturn = new HashMap();
-		String tab = "  ";
+		String tab = "      ";
 		StringBuilder sb = new StringBuilder("Weather information:\n");
 		Map coord = (Map) info.get("coord");
 		sb.append("Coordinates: \n" + tab + "longitude: ").append(coord.get("lon")).append("\n")
